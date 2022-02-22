@@ -1,0 +1,9 @@
+<nav class="navbar navbar-inverse">
+    <a class="navbar-brand" routerLink="home">App</a>
+    
+    <a *ngIf="!(loginService.loggedIn$ | async) as loggedIn; else isLoggedIn" class="btn btn-primary navbar-btn pull-right" routerLink="login">Log in</a>
+    <ng-template #isLoggedIn>
+      <a class="btn btn-primary navbar-btn" routerLink="cart">Go to cart</a>
+      <a class="btn btn-primary navbar-btn pull-right" (click)="logOut()">Log Out</a>
+    </ng-template>
+  </nav>
