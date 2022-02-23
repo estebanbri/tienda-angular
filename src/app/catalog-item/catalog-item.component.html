@@ -1,0 +1,14 @@
+<mat-card class="card">
+    <img src="/assets/items/{{ catalogItem.imageUrl }}" alt="{{ catalogItem.name }}" class="thumbnail" />
+
+    <mat-card-content>
+        <div class="card-content">
+            <h2 class="info-price">{{ catalogItem.price | currency }}</h2>
+            <span>{{ catalogItem.name }} {{ catalogItem.vendor }}</span>
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-raised-button (click)="onAddClicked(catalogItem)" matBadge="{{itemCartQuantity(catalogItem.id) | async}}" matBadgeColor="accent" color="primary" matBadgePosition="before">Añadir a la cesta</button>
+    </mat-card-actions>
+</mat-card>

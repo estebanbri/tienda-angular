@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartDataService } from '../services/cart-data.service';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { LoginService } from '../services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
+  cartItemQuantity$ = this.cartDataService.getTotalQuantity();
+
   constructor(
     public loginService: LoginService,
-    private router: Router) { }
+    private router: Router,
+    private cartDataService: CartDataService) { }
 
   ngOnInit() {
   }

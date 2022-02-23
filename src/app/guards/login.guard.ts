@@ -14,7 +14,8 @@ export class LoginGuard implements CanActivate {
   canActivate(): boolean | Observable<boolean>  {
     return this.loginService.loggedIn$.pipe(
       map(isLoggedIn => {
-        return isLoggedIn;
+        if(!isLoggedIn) { this.router.navigate(['/login']) }
+        return true;
       }),
       catchError((err) => {
         this.router.navigate(['/login']);

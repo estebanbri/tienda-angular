@@ -1,9 +1,14 @@
-<nav class="navbar navbar-inverse">
-    <a class="navbar-brand" routerLink="home">App</a>
-    
-    <a *ngIf="!(loginService.loggedIn$ | async) as loggedIn; else isLoggedIn" class="btn btn-primary navbar-btn pull-right" routerLink="login">Log in</a>
-    <ng-template #isLoggedIn>
-      <a class="btn btn-primary navbar-btn" routerLink="cart">Go to cart</a>
-      <a class="btn btn-primary navbar-btn pull-right" (click)="logOut()">Log Out</a>
-    </ng-template>
-  </nav>
+<div class="container">
+    <mat-toolbar color="primary">
+        <a mat-fab color="secondary" routerLink="home"><span class="material-icons">home</span></a>
+        <span class="spacer"></span>
+        <a mat-raised-button color="accent" *ngIf="!(loginService.loggedIn$ | async) as loggedIn; else isLoggedIn" routerLink="login">Log in</a>
+        <ng-template #isLoggedIn>
+            <a mat-raised-button color="primary" matBadge="{{cartItemQuantity$ | async}}" matBadgeColor="accent" routerLink="cart">
+                Go to cart <span class="material-icons">shopping_cart</span>                  
+            </a>
+            <span class="spacer"></span>
+            <a mat-raised-button color="primary" (click)="logOut()">Log Out</a>
+        </ng-template>
+    </mat-toolbar>
+</div>

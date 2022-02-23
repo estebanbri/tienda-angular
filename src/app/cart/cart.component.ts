@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../model/model';
+import { CartDataService } from '../services/cart-data.service';
+import { CatalogDataService } from '../services/catalog-data.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,23 +11,17 @@ import { CartItem } from '../model/model';
 })
 export class CartComponent implements OnInit {
 
-  cartItems: CartItem[] = [
-    {id: 1, name: 'headset', imageUrl:'headset.jpg', price: 50},
-    {id: 2, name: 'keyboard', imageUrl:'keyboard.jpg', price: 40},
-    {id: 3, name: 'mouse', imageUrl:'mouse.jpg', price: 30}
-  ];
-
-  constructor() { }
+  constructor(private catalogDataService: CatalogDataService, public cartDataService: CartDataService) { }
 
   ngOnInit(): void {
   }
 
-  get total(): number {
-    return this.cartItems.reduce((acc, { price }) => (acc += price), 0);
+  get getTotalPrice(): Observable<number>{
+    return this.cartDataService.getTotalPrice();
   }
 
-  deleteItem(itemToDelete: CartItem): void {
-    this.cartItems = this.cartItems.filter((item) => item !== itemToDelete);
+  deleteItem(itemIndex: number): void {
+    this.cartDataService.deleteItem(itemIndex);
   }
 
 }

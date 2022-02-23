@@ -1,0 +1,3 @@
+<div *ngFor="let catalogItem of catalog$ | async ">
+    <app-catalog-item [catalogItem]="catalogItem " (catalogItemAdd)="onAddCatalogItem(catalogItem)"></app-catalog-item>
+</div>

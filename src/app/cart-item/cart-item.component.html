@@ -1,12 +1,6 @@
-<img
-  src="/assets/items/{{ cartItem?.imageUrl }}"
-  alt="{{ cartItem?.name }}"
-  class="thumbnail"
-/>
+<img src="/assets/items/{{ cartItem.imageUrl }}" alt="{{ cartItem.name }}" class="thumbnail" />
 <div class="info">
-  <span>{{ cartItem?.name }}</span>
-  <span class="info-price">{{ cartItem?.price }} €</span>
+    <span>{{ cartItem.name }}</span>
+    <span class="info-price">{{ cartItem.price | currency }} </span>
 </div>
-<button (click)="onDeleteClicked()">
-  x
-</button>
+<button mat-mini-fab color="warn" (click)="onDeleteClicked()"><mat-icon>delete</mat-icon></button>

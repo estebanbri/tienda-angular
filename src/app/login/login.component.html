@@ -1,12 +1,30 @@
-<form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-  
-    <a type="button submit" class="btn btn-primary" (click)="logIn()">Submit</a>
-</form>
+<div class="container">
+    <form>
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title>Log in</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <mat-form-field appearance="outline" [style.width.px]="400">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Ingrese su email" name="email" required>
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" [style.width.px]="400">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Ingrese su password" name="password" required>
+                    <mat-icon matSuffix>password</mat-icon>
+                    <mat-hint>Minimo 4 caracteres</mat-hint>
+                </mat-form-field>
+
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+                <a mat-raised-button color="primary" type="submit" (click)="logIn()">Log in</a>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
