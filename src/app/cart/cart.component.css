@@ -31,3 +31,15 @@
     align-self: flex-end;
     margin-top: 54px;
 }
+
+.back {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #808080;
+    font-size: 0.825rem;
+    margin-bottom: 16px;
+}
+
+.back:hover {
+    text-decoration: underline;
+}

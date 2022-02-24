@@ -1,5 +1,7 @@
 <mat-card class="card">
-    <img src="/assets/items/{{ catalogItem.imageUrl }}" alt="{{ catalogItem.name }}" class="thumbnail" />
+    <div class="img__container">
+        <img src="/assets/items/{{ catalogItem.imageUrl }}" alt="{{ catalogItem.name }}" class="thumbnail" />
+    </div>
 
     <mat-card-content>
         <div class="card-content">
@@ -9,6 +11,6 @@
     </mat-card-content>
 
     <mat-card-actions align="end">
-        <button mat-raised-button (click)="onAddClicked(catalogItem)" matBadge="{{itemCartQuantity(catalogItem.id) | async}}" matBadgeColor="accent" color="primary" matBadgePosition="before">Añadir a la cesta</button>
+        <button mat-raised-button (click)="onAddClicked(catalogItem)" matBadge="{{itemCartQuantity(catalogItem.id) | async}}" matBadgeColor="warn" color="primary" matBadgePosition="before"><span class="material-icons">add</span>Añadir al carrito</button>
     </mat-card-actions>
 </mat-card>

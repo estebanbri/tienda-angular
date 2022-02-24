@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { urlGlobal, environment } from 'src/environments/environment';
 import { CatalogItem } from '../model/model';
 
 @Injectable({
@@ -7,18 +9,9 @@ import { CatalogItem } from '../model/model';
 })
 export class CatalogDataService {
 
-  private _catalog = new BehaviorSubject<CatalogItem[]>(this.getAllCatalog());
+  constructor(private http: HttpClient) { }
 
-  public catalog$ = this._catalog.asObservable();
-
-  constructor() { }
-
-  getAllCatalog(): CatalogItem[] {
-    // Refactor call to BE
-    return [
-      {id: 1, name: "Headphone", price: 30, vendor: "Sony", imageUrl:"headphone.jpg"},
-      {id: 2, name: "Monitor", price: 50, vendor: "Samsung", imageUrl:"monitor.jpg"},
-      {id: 3, name: "Keyboard", price: 10, vendor: "Logitech", imageUrl:"keyboard.jpg"},
-    ];
+  getAllCatalog(): Observable<CatalogItem[]> {
+    return this.http.get<CatalogItem[]>(environment.apiUrl + urlGlobal.GetAllCatalog);
   }
 }

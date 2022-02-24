@@ -2,13 +2,18 @@
     <mat-toolbar color="primary">
         <a mat-fab color="secondary" routerLink="home"><span class="material-icons">home</span></a>
         <span class="spacer"></span>
-        <a mat-raised-button color="accent" *ngIf="!(loginService.loggedIn$ | async) as loggedIn; else isLoggedIn" routerLink="login">Log in</a>
+        <a mat-raised-button color="accent" *ngIf="!(loginService.loggedIn$ | async) as loggedIn; else isLoggedIn" routerLink="login"><span class="material-icons">
+            login
+            </span></a>
         <ng-template #isLoggedIn>
-            <a mat-raised-button color="primary" matBadge="{{cartItemQuantity$ | async}}" matBadgeColor="accent" routerLink="cart">
+            <a mat-raised-button color="secondary" matBadge="{{totalQuantity$ | async}}" matBadgeColor="warn" routerLink="cart">
                 Go to cart <span class="material-icons">shopping_cart</span>                  
             </a>
             <span class="spacer"></span>
-            <a mat-raised-button color="primary" (click)="logOut()">Log Out</a>
+            <a mat-raised-button color="primary" (click)="logOut()"><span class="material-icons">
+                logout
+                </span>
+                </a>
         </ng-template>
     </mat-toolbar>
 </div>

@@ -1,8 +1,9 @@
+<a class="back" routerLink="/home">&lt; Volver al catalogo</a>
 <p class="title">
     Mi Carrito</p>
 
 <app-cart-item *ngFor="let item of cartDataService.cartItems$ | async; let i = index" [cartItem]="item" (cartItemDelete)="deleteItem(i)"></app-cart-item>
 
-<p class="total"><span class="total-label">total:</span> {{ (getTotalPrice | async) | currency }}</p>
+<p class="total"><span class="total-label">total:</span> {{ (totalPrice$ | async) | currency }}</p>
 
 <button class="btn-purchase" mat-raised-button color="primary">Finalizar Pedido</button>

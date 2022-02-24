@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { CatalogItem } from '../model/model';
 import { CartDataService } from '../services/cart-data.service';
@@ -6,7 +6,8 @@ import { CartDataService } from '../services/cart-data.service';
 @Component({
   selector: 'app-catalog-item',
   templateUrl: './catalog-item.component.html',
-  styleUrls: ['./catalog-item.component.css']
+  styleUrls: ['./catalog-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogItemComponent implements OnInit {
 

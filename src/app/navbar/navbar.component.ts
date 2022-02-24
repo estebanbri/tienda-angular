@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartDataService } from '../services/cart-data.service';
 import { LoginService } from '../services/login.service';
@@ -10,8 +10,8 @@ import { LoginService } from '../services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
-  cartItemQuantity$ = this.cartDataService.getTotalQuantity();
-
+  totalQuantity$ = this.cartDataService.totalQuantity$;
+  
   constructor(
     public loginService: LoginService,
     private router: Router,
@@ -24,4 +24,5 @@ export class NavbarComponent implements OnInit {
     this.loginService.logOut();
     this.router.navigate(['login']);
   }
+
 }

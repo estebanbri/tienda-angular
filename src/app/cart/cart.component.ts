@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { CartItem } from '../model/model';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CartDataService } from '../services/cart-data.service';
 import { CatalogDataService } from '../services/catalog-data.service';
 
@@ -13,11 +11,9 @@ export class CartComponent implements OnInit {
 
   constructor(private catalogDataService: CatalogDataService, public cartDataService: CartDataService) { }
 
+  totalPrice$ = this.cartDataService.totalPrice$;
+  
   ngOnInit(): void {
-  }
-
-  get getTotalPrice(): Observable<number>{
-    return this.cartDataService.getTotalPrice();
   }
 
   deleteItem(itemIndex: number): void {
