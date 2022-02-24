@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Pantallas:
 
-![alt text](https://github.com/estebanbri/tienda-angular/blob/master/src/assets/login.png)
-![alt text](https://github.com/estebanbri/tienda-angular/blob/master/src/assets/home-catalogo.png)
-![alt text](https://github.com/estebanbri/tienda-angular/blob/master/src/assets/carrito-compras.png)
+![alt text](https://github.com/estebanbri/tienda-angular/blob/master/src/assets/login.png =250x)
+![alt text](https://github.com/estebanbri/tienda-angular/blob/master/src/assets/home-catalogo.png =250x)
+![alt text](https://github.com/estebanbri/tienda-angular/blob/master/src/assets/carrito-compras.png =250x)
 
 
 
