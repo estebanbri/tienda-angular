@@ -1,3 +1,13 @@
-<div *ngFor="let catalogItem of catalog$ | async ">
-    <app-catalog-item [catalogItem]="catalogItem " (catalogItemAdd)="onAddCatalogItem(catalogItem)"></app-catalog-item>
-</div>
+<ng-container *ngIf="(catalog$ | async) as catalog">
+    <ng-container *ngIf="catalog.length > 0; else noData">
+        <div *ngFor="let catalogItem of catalog">
+            <div >
+                <app-catalog-item  [catalogItem]="catalogItem " (catalogItemAdd)="onAddCatalogItem(catalogItem)"></app-catalog-item>
+            </div>      
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #noData>
+    <h2>No Data Found</h2>
+</ng-template>
