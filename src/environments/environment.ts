@@ -8,7 +8,7 @@ export const environment = {
 };
 
 export const urlGlobal = {
-  GetAllCatalog : 'v1/personas/catalog'
+  GetAllCatalog : 'v1/catalogo'
 };
 
 /*
